@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load package_extras %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - Package Search{% endblock %}
 {% block navbarclass %}anb-packages{% endblock %}
@@ -68,8 +69,8 @@
                 <td>{{ pkg.full_version }}</td>
                 {% endif %}
                 <td class="wrap">{{ pkg.pkgdesc }}</td>
-                <td>{{ pkg.last_update|date }}</td>
-                <td>{{ pkg.flag_date|date }}</td>
+                <td>{{ pkg.last_update|no_l10n_date }}</td>
+                <td>{{ pkg.flag_date|no_l10n_date }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -115,8 +116,8 @@
                     <td>{{ pkg.full_version }}</td>
                     {% endif %}
                     <td class="wrap">{{ pkg.pkgdesc }}</td>
-                    <td>{{ pkg.last_update|date }}</td>
-                    <td>{{ pkg.flag_date|date }}</td>
+                    <td>{{ pkg.last_update|no_l10n_date }}</td>
+                    <td>{{ pkg.flag_date|no_l10n_date }}</td>
                 </tr>
                 {% empty %}
                 <tr class="empty"><td colspan="{% if perms.main.change_package %}8{% else %}7{% endif %}"><em>No matching packages found</em></td></tr>

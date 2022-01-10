@@ -2,6 +2,7 @@
 {% load static %}
 {% load attributes %}
 {% load package_extras %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - {{ title }}{% endblock %}
 
@@ -60,9 +61,9 @@
                 {% else %}
                 <td>{{ pkg.full_version }}</td>
                 {% endif %}
-                <td>{{ pkg.last_update|date }}</td>
-                <td>{{ pkg.build_date|date }}</td>
-                <td>{{ pkg.flag_date|date }}</td>
+                <td>{{ pkg.last_update|no_l10n_date }}</td>
+                <td>{{ pkg.build_date|no_l10n_date }}</td>
+                <td>{{ pkg.flag_date|no_l10n_date }}</td>
                 {% for attr in column_attrs %}
                 <td>{{ pkg|attribute:attr }}</td>
                 {% endfor %}

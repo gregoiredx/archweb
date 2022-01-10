@@ -2,6 +2,7 @@
 {% load static %}
 {% load package_extras %}
 {% load todolists %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - Todo: {{ list.name }}{% endblock %}
 
@@ -21,7 +22,7 @@
         {% endif %}
     </ul>
 
-    <div class="todo-info">{{ list.created|date }} - {{ list.creator.get_full_name }}</div>
+    <div class="todo-info">{{ list.created|no_l10n_date }} - {{ list.creator.get_full_name }}</div>
 
     <div class="todo-description">
         {{list.stripped_description|default:'(no description)'|urlize|linebreaks}}

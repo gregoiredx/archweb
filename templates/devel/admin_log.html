@@ -1,5 +1,7 @@
 {% extends "admin/base_site.html" %}
 {% load i18n static %}
+{% load package_extras %}
+{% load no_l10n_date %}
 
 {% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
 
@@ -30,7 +32,7 @@
     <tbody>
         {% for entry in admin_log %}
         <tr>
-            <th scope="row">{{ entry.action_time|date:"DATETIME_FORMAT" }}</th>
+            <th scope="row">{{ entry.action_time|no_l10n_date:"DATETIME_FORMAT" }}</th>
             {% if log_user %}
             <td>{{ entry.user.username }}{% if entry.user.get_full_name %} ({{ entry.user.get_full_name }}){% endif %}</td>
             {% else %}

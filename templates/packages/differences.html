@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load package_extras %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - Package Differences Reports{% endblock %}
 {% block navbarclass %}anb-packages{% endblock %}
@@ -29,8 +30,8 @@
                 <td><span{% if pkg2.flag_date %} class="flagged"{% endif %}>{{ pkg2.full_version }}</span></td>
                 <td>{% pkg_details_link pkg2 %}</td>
                 <td>{{ pkg2.repo }}</td>
-                <td>{{ pkg1.last_update|date }}</td>
-                <td>{{ pkg2.last_update|date }}</td>
+                <td>{{ pkg1.last_update|no_l10n_date }}</td>
+                <td>{{ pkg2.last_update|no_l10n_date }}</td>
             </tr>
             {% endfor %}
         </tbody>

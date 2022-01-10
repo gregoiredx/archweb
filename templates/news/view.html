@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load no_l10n_date %}
 {% block title %}Arch Linux - News: {{ news.title }}{% endblock %}
 
 {% block content %}
@@ -25,7 +26,7 @@
     </ul>
     {% endif %}
 
-    <p class="article-info">{{ news.postdate|date }} - {{ news.author.get_full_name }}</p>
+    <p class="article-info">{{ news.postdate|no_l10n_date }} - {{ news.author.get_full_name }}</p>
 
     <div class="article-content" itemprop="articleBody">{{ news.html }}</div>
 </div>

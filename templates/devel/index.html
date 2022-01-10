@@ -3,6 +3,7 @@
 {% load cache %}
 {% load package_extras %}
 {% load todolists %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - Developer Dashboard{% endblock %}
 
@@ -36,8 +37,8 @@
                         {% endif %}{% endwith %}</td>
                     <td>{{ pkg.repo.name }}</td>
                     <td>{{ pkg.arch.name }}</td>
-                    <td>{{ pkg.flag_date|date }}</td>
-                    <td>{{ pkg.last_update|date }}</td>
+                    <td>{{ pkg.flag_date|no_l10n_date }}</td>
+                    <td>{{ pkg.last_update|no_l10n_date }}</td>
                 </tr>
             {% empty %}
                 <tr class="empty"><td colspan="7"><em>No flagged packages to display</em></td></tr>
@@ -68,7 +69,7 @@
                 <td>{{ group.version }}</td>
                 <td>{{ group.arch.name }}</td>
                 <td>{{ group.target_repo }}</td>
-                <td>{{ group.last_update|date }}</td>
+                <td>{{ group.last_update|no_l10n_date }}</td>
                 {% if group.specification.known_bad %}
                 <td class="approval signoff-bad">Bad</td>
                 {% else %}
@@ -139,7 +140,7 @@
             <tr>
                 <td class="wrap"><a href="{{ todo.get_absolute_url }}"
                         title="View todo list: {{ todo.name }}">{{ todo.name }}</a></td>
-                <td>{{ todo.created|date }}</td>
+                <td>{{ todo.created|no_l10n_date }}</td>
                 <td>{{ todo.creator.get_full_name }}</td>
                 <td class="wrap">{{ todo.description|urlize|truncatewords:"50" }}</td>
                 <td>{{ todo.pkg_count }}</td>

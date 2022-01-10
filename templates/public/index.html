@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load cache %}
 {% load static %}
+{% load no_l10n_date %}
 
 {% block head %}
 <link rel="alternate" type="application/rss+xml" title="Arch Linux News Updates" href="/feeds/news/" />
@@ -50,7 +51,7 @@
         <a href="{{ news.get_absolute_url }}"
             title="View full article: {{ news.title }}">{{ news.title }}</a>
     </h4>
-    <p class="timestamp">{{ news.postdate|date }}</p>
+    <p class="timestamp">{{ news.postdate|no_l10n_date }}</p>
     <div class="article-content">
         {% if forloop.counter0 == 0 %}{{ news.html|truncatewords_html:300 }}
         {% else %}{{ news.html|truncatewords_html:100 }}{% endif %}
@@ -63,7 +64,7 @@
     </h3>
     <dl class="newslist">
     {% endif %}
-        <dt>{{ news.postdate|date }}</dt>
+        <dt>{{ news.postdate|no_l10n_date }}</dt>
         <dd>
             <a href="{{ news.get_absolute_url }}"
                 title="View full article: {{ news.title }}">{{ news.title }}</a>

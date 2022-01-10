@@ -69,6 +69,12 @@ def test_head(client, package):
     assert response.status_code == 200
 
 
+def test_date_format(client, package):
+    response = client.get('/packages/?q=linux')
+    assert response.status_code == 200
+    assert '2017-12-30' in response.content.decode()
+
+
 def test_packages(client, package):
     response = client.get('/opensearch/packages/')
     assert response.status_code == 200

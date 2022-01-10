@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load no_l10n_date %}
 
 {% block title %}Arch Linux - Package Groups{% if arch %} - {{ arch }}{% endif %}{% endblock %}
 {% block navbarclass %}anb-packages{% endblock %}
@@ -23,7 +24,7 @@
                 <td><a href="/groups/{{ grp.arch }}/{{ grp.name }}/"
                         title="Group details for {{ grp.name }}">{{ grp.name }}</a></td>
                 <td>{{ grp.count }}</td>
-                <td>{{ grp.last_update|date }}</td>
+                <td>{{ grp.last_update|no_l10n_date }}</td>
             </tr>
             {% endfor %}
         </tbody>

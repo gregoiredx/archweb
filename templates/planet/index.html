@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load cache %}
 {% load static %}
+{% load no_l10n_date %}
 
 {% block head %}
 <link rel="alternate" type="application/rss+xml" title="Arch Linux Planet" href="{% url 'planet-feed' %}" />
@@ -24,7 +25,7 @@
         <a href="{{ entry.url }}"
             title="View full article: {{ entry.title }}">{{ entry.title }}</a>
     </h4>
-    <p class="timestamp">{{ entry.publishdate|date }}</p>
+    <p class="timestamp">{{ entry.publishdate|no_l10n_date }}</p>
     <div class="article-content">
         {{ entry.summary |safe }}
     </div>

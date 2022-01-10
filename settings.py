@@ -34,12 +34,10 @@ DEFAULT_CHARSET = 'utf-8'
 
 SITE_ID = 1
 
-# Default date format in templates for 'date' filter
+# Default date format in templates for 'no_l10n_date' filter
 DATE_FORMAT = 'Y-m-d'
 DATETIME_FORMAT = 'Y-m-d H:i'
 
-# Disable so our own DATE_FORMAT/DATETIME_FORMAT is used.
-USE_L10N = False
 
 # Login URL configuration
 LOGIN_URL = '/login/'
